@@ -11,7 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/styles-index.css" />
+    <link rel="stylesheet" href="./css/styles-amigos.css" />
+
+    <script src="./js/script.js"></script>
   </head>
 
   <body>
@@ -20,28 +22,53 @@
       <span class="boton-navbar"><a href="./datos.html">Datos Biograficos</a></span>
       <span class="boton-navbar"><a href="./curriculum.html">Hoja de Vida</a></span>
       <span class="boton-navbar"><a href="./hobbies.html">Intereses</a></span>
-      <span class="titulo-navbar"><a href="./amigos.html">Índice</a></span>
+      <span class="titulo-navbar"><a href="./amigos.html">Amigos</a></span>
     </header>
-
-      <section class="contenido">
-        <h1>Bienvenida</h1>
-        <div class="contenedor">
-            <p>
-                El índice de este sitio web se estructura mediante enlaces HTML que
-                redirigen a las secciones clave de la página. Utilizando etiquetas
-                "&lta&gt" y atributos "href", el índice enlaza directamente a las áreas
-                relevantes del contenido, permitiendo una navegación eficiente. El
-                diseño y estilo del índice están definidos mediante reglas CSS,
-                asegurando una presentación atractiva y funcional. Este enfoque facilita
-                a los usuarios la exploración y localización rápida de información
-                relevante sobre el autor y sus obras.
-            </p>
-            <img src="./images/Html-Css-logo.png" class="imagen"/>
-        </div>
-      </section>
-
+  
+    <section>
+      <h2>Formulario</h2>
+      <form>
+        <label for="username">Username</label>
+        <input type="text" name="username"> <br>
+        <label for="name">Nombre</label>
+        <input type="text" name="name"> <br>
+        <label for="image">Imagen</label>
+        <input type="text" name="image">
+      </form>
+      <h2>Amigos</h2>
+      <h2>Mascotas</h2>
+    </section>
+  
     <footer>
-
+      <div class="footer">
+        <div class="row">
+          <h2>Página personal y Portafolio</h2>
+        </div>
+        <div class="row links">
+          <div class="half first">
+            <p>
+              Alejandro Barragán Amortegui <br />
+              2024 <br />
+              Bogotá, Colombia <br />
+              Pontificia Unviersidad Javeriana
+            </p>
+          </div>
+          <div class="half">
+            <a href="https://www.instagram.com/gustavopetrourrego/">
+              <img src="./images/instagram-logo.png" class="logo" />
+            </a>
+            <a href="https://github.com/alejo190404">
+              <img src="./images/github-logo.png" class="logo" />
+            </a>
+            <a href="https://open.spotify.com/user/alejo190404">
+              <img src="./images/spotify-logo.png" class="logo" />
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <p id="trademark">© 2023 Alejandro Barragán</p>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
