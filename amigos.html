@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="./css/styles-amigos.css" />
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
   </head>
 
   <body>
@@ -27,15 +27,35 @@
   
     <section>
       <h2>Formulario</h2>
-      <form>
-        <label for="username">Username</label>
-        <input type="text" name="username"> <br>
-        <label for="name">Nombre</label>
-        <input type="text" name="name"> <br>
-        <label for="image">Imagen</label>
-        <input type="text" name="image">
+      <form id="form-user">
+        <label for="username" class="etiqueta">Username</label><br>
+        <input type="text" name="username" id="username"> <br>
+        <label for="name" class="etiqueta">Nombre</label><br>
+        <input type="text" name="name" id="name"> <br>
+        <label for="imagen" class="etiqueta">Imagen</label><br>
+        <input type="text" name="imagen" id="imagen"> <br>
+        <label for="pet" class="etiqueta">Mascota</label><br>
+        <input type="text" name="Mascota" id="pet"><br>
+        <br>
+        <br>
+
+        <button type="submit" id="enviar-formulario">Enviar formulario</button>
       </form>
       <h2>Amigos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Mascotas</th>
+          </tr>
+        </thead>
+        <tbody id="body-tabla">
+          
+        </tbody>
+      </table>
+
       <h2>Mascotas</h2>
     </section>
   
