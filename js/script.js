@@ -1,5 +1,6 @@
 let arreglo = [];
 let flag = false;
+let flagMascota = false;
 
 const tabla = document.getElementById("body-tabla");
 const btnEnviar = document.getElementById("enviar-formulario");
@@ -37,14 +38,49 @@ btnEnviar.addEventListener("click", (event) => {
 
     for (let elemento of arreglo){
         if(elemento.username == username.value){
-            console.log("Existe");
-            flag = true;
+            for (let mascota of elemento.pets){
+                if(mascota == pet.value){
+                    alert("El usuario ya tiene registrada una mascota con ese nombre");
+                    flag = true;
+                }
+                else {
+                    elemento.pets.push(pet.value);
+                    flagMascota = true;
+                    break;
+                }
+            }
         }
     }
-    console.log(flag);
-    actualizarTabla();
+    if(flag){
+        //Do nothing
+    }
+    else if(flagMascota){
+        flagMascota = false;
+    }
+    else{
+        arreglo.push({
+            username: username.value,
+            name: name.value,
+            imagen: imagen.value,
+            pets: [pet.value]});
+        actualizarTabla();
+    }
+    console.log(arreglo);
 }
 )
+
+const mostrarListaMascotas = (usuario) => {
+    const lista = document.getElementById("lista-mascotas");
+
+    for (let elemento of arreglo){
+        if(elemento.username == String(usuario)){
+            lista.innerHTML = "";
+            for (let mascota of elemento.pets){
+                lista.innerHTML += `<li>${mascota}</li>`;
+            }
+        }
+    }
+}
 
 const validateUsername = (username) => {
     return String(username)
@@ -56,7 +92,7 @@ const actualizarTabla = () => {
     <td>${username.value}</td>
     <td>${name.value}</td>
     <td>${imagen.value}</td>
-    <td>${pet.value}</td>
+    <td><button onclick="mostrarListaMascotas('${String(username.value)}')">Ver mascotas</button></td>
     </tr>`;
     tabla.innerHTML += tag;
 }
