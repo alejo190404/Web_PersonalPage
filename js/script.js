@@ -1,70 +1,62 @@
-const cuerpoTabla = document.getElementById("body-tabla");
-const formUser = document.getElementById("form-user");
-
 let arreglo = [];
 let flag = false;
 
-console.log(arreglo)
+const tabla = document.getElementById("body-tabla");
+const btnEnviar = document.getElementById("enviar-formulario");
+const username = document.getElementById("username");
+const name = document.getElementById("name");
+const imagen = document.getElementById("imagen");
+const pet = document.getElementById("pet");
 
-formUser.addEventListener("submit", (event)=>{
+btnEnviar.addEventListener("click", (event) => {
     event.preventDefault();
-    if (formUser.username.value == ""){
+    if (username.value == ""){
         alert("El campo username se encuentra vacío");
         flag = true;
     }
 
-    if (formUser.name.value == ""){
+    if (name.value == ""){
         alert("El campo nombre se encuentra vacío");
         flag = true;
     }
 
-    if (formUser.imagen.value == ""){
+    if (imagen.value == ""){
         alert("No se seleccionó ningún archivo del campo imagen");
         flag = true;
     }
 
-    if (formUser.pet.value == ""){
+    if (pet.value == ""){
         alert("El campo mascota se encuentra vacío");
         flag = true;
     }
 
-    if (!(validateUsername(formUser.username.value))) {
+    if (!(validateUsername(username.value))) {
         alert("El campo username no es valido");
         flag = true;
     }
 
     for (let elemento of arreglo){
-        if(elemento.username == formUser.username.value){
+        if(elemento.username == username.value){
             console.log("Existe");
             flag = true;
         }
     }
-    if(flag)
-        event.preventDefault();
-
-
-    
-    arreglo.push({
-        username: formUser.username.value,
-        name: formUser.name.value,
-        imagen: formUser.imagen.value,
-        pet: formUser.pet.value
-    });
-    console.log(arreglo);
-    let tag = `<tr>
-    <td>${formUser.username.value}</td>
-    <td>${formUser.name.value}</td>
-    <td>${formUser.imagen.value}></td>
-    <td>${formUser.pet.value}</td>
-    </tr>`
-    console.log(formUser.imagen.value);
-    
-    cuerpoTabla.innerHTML += tag;
-    console.log(arreglo);
-    alert("Llega")
-})
+    console.log(flag);
+    actualizarTabla();
+}
+)
 
 const validateUsername = (username) => {
     return String(username)
     .match(/^(?!.*^\.)(?!.*\.$).*\..*$/);
+}
+
+const actualizarTabla = () => {
+    let tag = `<tr>
+    <td>${username.value}</td>
+    <td>${name.value}</td>
+    <td>${imagen.value}</td>
+    <td>${pet.value}</td>
+    </tr>`;
+    tabla.innerHTML += tag;
 }
