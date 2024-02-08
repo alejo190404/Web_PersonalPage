@@ -9,8 +9,8 @@ const name = document.getElementById("name");
 const imagen = document.getElementById("imagen");
 const pet = document.getElementById("pet");
 
-btnEnviar.addEventListener("click", (event) => {
-    event.preventDefault();
+let enviar = () => {
+    //event.preventDefault();
     if (username.value == ""){
         alert("El campo username se encuentra vacío");
         flag = true;
@@ -51,8 +51,9 @@ btnEnviar.addEventListener("click", (event) => {
             }
         }
     }
+    console.log(flag);
     if(flag){
-        //Do nothing
+        flag=false;
     }
     else if(flagMascota){
         flagMascota = false;
@@ -66,8 +67,9 @@ btnEnviar.addEventListener("click", (event) => {
         actualizarTabla();
     }
     console.log(arreglo);
+    document.getElementById("form-amigos").reset();
 }
-)
+
 
 const mostrarListaMascotas = (usuario) => {
     const lista = document.getElementById("lista-mascotas");
